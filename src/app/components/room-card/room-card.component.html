@@ -1,0 +1,26 @@
+<div class="room-card">
+  <img
+    [src]="room.urlImage"
+    alt="room image"
+    width="100%"
+    height="144px"
+    class="room-card-image"
+  />
+  <div class="room-card-content">
+    <p class="room-name">{{ room.name }}</p>
+    <p class="room-description">{{ room.description }}</p>
+    <p class="room-price">{{ room.price | currency }}</p>
+    <p class="room-guests">
+      {{ room.maxGuests }}
+      <mat-icon fontIcon="person" class="guest-icon"></mat-icon>
+    </p>
+    <button
+      mat-button
+      class="book-button"
+      (click)="confirmBooking()"
+      [disabled]="!checkInDate || !checkOutDate || !guests"
+    >
+      BOOK
+    </button>
+  </div>
+</div>

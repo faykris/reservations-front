@@ -1,0 +1,31 @@
+.login-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  padding: 0 24px;
+}
+
+.custom-dialog-container {
+  max-width: 500px;
+  width: 100%;
+}
+
+.login-form .form-field {
+  min-width: 300px;
+}
+
+.title {
+  font-weight: 300;
+}
+
+.error-message {
+  color: #b00020;
+}
+
+@media (max-width: 540px) {
+  .login-form .form-field {
+    min-width: unset;
+  }
+}

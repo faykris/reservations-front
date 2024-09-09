@@ -1,0 +1,64 @@
+<div>
+  <mat-dialog-content>
+    <div class="booking-confirmation">
+      <div class="summary">
+        <h2 class="booking-title">Your booking summary</h2>
+        <div class="section-container">
+          <p class="section-title">Address</p>
+          <div class="hotel-information">
+            <p class="hotel-details">Titan hotel</p>
+            <p class="hotel-details">Cr 13 #44-34</p>
+            <p class="hotel-details">{{ data.name }}</p>
+          </div>
+        </div>
+        <div class="section-container">
+          <p class="section-title">Dates</p>
+          <div class="reservation-date">
+            <mat-form-field>
+              <mat-label>Check in date</mat-label>
+              <input
+                matInput
+                [matDatepicker]="checkInPicker"
+                [(ngModel)]="data.checkIn"
+              />
+              <mat-hint>MM/DD/YYYY</mat-hint>
+              <mat-datepicker-toggle
+                matIconSuffix
+                [for]="checkInPicker"
+              ></mat-datepicker-toggle>
+              <mat-datepicker #checkInPicker></mat-datepicker>
+            </mat-form-field>
+
+            <mat-form-field>
+              <mat-label>Check out date</mat-label>
+              <input
+                matInput
+                [matDatepicker]="checkOutPicker"
+                [(ngModel)]="data.checkOut"
+              />
+              <mat-hint>MM/DD/YYYY</mat-hint>
+              <mat-datepicker-toggle
+                matIconSuffix
+                [for]="checkOutPicker"
+              ></mat-datepicker-toggle>
+              <mat-datepicker #checkOutPicker></mat-datepicker>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="section-container">
+          <p class="section-title">Guests</p>
+          <p class="reservation-guests">
+            {{ data.guests }}
+            <mat-icon fontIcon="person" class="guest-icon"></mat-icon>
+          </p>
+        </div>
+        <p class="error-message">{{ errorMessage }}</p>
+      </div>
+    </div>
+  </mat-dialog-content>
+
+  <mat-dialog-actions>
+    <button mat-button (click)="onCancel()">Cancel</button>
+    <button mat-button (click)="onEditBooking()">Update</button>
+  </mat-dialog-actions>
+</div>

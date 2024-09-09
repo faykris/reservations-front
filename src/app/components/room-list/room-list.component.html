@@ -1,0 +1,11 @@
+<div class="container">
+  <app-room-card
+    *ngFor="let room of rooms"
+    [room]="room"
+    class="card"
+    [checkInDate]="checkInDate"
+    [checkOutDate]="checkOutDate"
+    [guests]="guests"
+    (openReservationsTab)="onOpenReservationsTab()"
+  ></app-room-card>
+</div>

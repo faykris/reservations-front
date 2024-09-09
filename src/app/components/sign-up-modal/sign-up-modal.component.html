@@ -1,0 +1,61 @@
+<div>
+  <mat-dialog-content>
+    <form [formGroup]="signupForm" (ngSubmit)="onSignUp()" class="signup-form">
+      <h1 class="title">Sign Up</h1>
+
+      <mat-form-field class="form-field">
+        <mat-label>First Name</mat-label>
+        <input matInput formControlName="firstname" />
+        <mat-error *ngIf="f['firstname'].invalid && !f['firstname'].untouched">
+          <span *ngIf="f['firstname'].errors?.['required']">
+            First name is required
+          </span>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="form-field">
+        <mat-label>Last Name</mat-label>
+        <input matInput formControlName="lastname" />
+        <mat-error *ngIf="f['lastname'].invalid && !f['lastname'].untouched">
+          <span *ngIf="f['lastname'].errors?.['required']">
+            Last name is required
+          </span>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="form-field">
+        <mat-label>Username</mat-label>
+        <input matInput formControlName="username" />
+        <mat-error *ngIf="f['username'].invalid && !f['username'].untouched">
+          <span *ngIf="f['username'].errors?.['required']">
+            Username is required
+          </span>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="form-field">
+        <mat-label>Password</mat-label>
+        <input matInput type="password" formControlName="password" />
+        <mat-error *ngIf="f['password'].invalid && !f['password'].untouched">
+          <span *ngIf="f['password'].errors?.['required']">
+            Password is required
+          </span>
+          <span *ngIf="f['password'].errors?.['minlength']">
+            Password must be at least 6 characters
+          </span>
+        </mat-error>
+      </mat-form-field>
+
+      <div *ngIf="errorMessage" class="error-message">
+        {{ errorMessage }}
+      </div>
+    </form>
+  </mat-dialog-content>
+
+  <mat-dialog-actions>
+    <button mat-button (click)="onCancelSignUp()">Cancel</button>
+    <button mat-button (click)="onSignUp()" [disabled]="signupForm.invalid">
+      Sign Up
+    </button>
+  </mat-dialog-actions>
+</div>

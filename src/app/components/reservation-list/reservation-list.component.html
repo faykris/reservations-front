@@ -1,0 +1,10 @@
+<div class="reservation-list">
+  <app-reservation-card
+    *ngFor="let reservation of reservations"
+    [reservation]="reservation"
+    class="card"
+    (reservationUpdated)="onReservationUpdated()"
+  ></app-reservation-card>
+
+  <h3 *ngIf="reservations.length === 0">You don't have reservations yet</h3>
+</div>

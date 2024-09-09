@@ -1,0 +1,86 @@
+.reservation-card {
+  border: 1px solid #eee;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.08);
+  display: flex;
+  font-size: 16px;
+  cursor: pointer;
+  position: relative;
+}
+
+.reservation-content {
+  display: flex;
+  flex-direction: column;
+  padding: 36px 20px 0 20px;
+}
+
+.reservation-date {
+  display: flex;
+  gap: 16px;
+}
+
+.reservation-card-image {
+  width: 30%;
+  min-height: 100%;
+  height: auto;
+  min-width: 140px;
+  object-fit: cover;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  background-color: #eeeeee;
+}
+
+.reservation-start-date,
+.reservation-end-date {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.room-name {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.status-confirmed {
+  color: #4caf50;
+}
+
+.status-pending {
+  color: #ff9800;
+}
+
+.status-cancelled {
+  color: #f44336;
+}
+
+.status {
+  font-size: 14px;
+  font-weight: 600;
+  position: absolute;
+  top: 16px;
+  right: 16px;
+}
+
+.reservation-description {
+  font-size: 14px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-height: 3.2em;
+  line-height: 1.6em;
+}
+
+.reservation-guests {
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.guest-icon {
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+}

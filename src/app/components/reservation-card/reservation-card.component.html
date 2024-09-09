@@ -1,0 +1,36 @@
+<div class="reservation-card" (click)="openEditBooking()">
+  <img
+    [src]="reservation.room?.urlImage"
+    alt="room image"
+    width="100%"
+    height="144px"
+    class="reservation-card-image"
+  />
+  <div class="reservation-content">
+    <p class="room-name">{{ reservation.room?.name }}</p>
+    <div class="reservation-date">
+      <p class="reservation-start-date">
+        {{ reservation.checkIn | date: 'MMM d, h:mm a' }}
+      </p>
+      -
+      <p class="reservation-end-date">
+        {{ reservation.checkOut | date: 'MMM d, h:mm a' }}
+      </p>
+    </div>
+    <p
+      [ngClass]="{
+        status: true,
+        'status-confirmed': reservation.status === 'CONFIRMED',
+        'status-pending': reservation.status === 'PENDING',
+        'status-cancelled': reservation.status === 'CANCELLED',
+      }"
+    >
+      {{ reservation.status }}
+    </p>
+    <p class="reservation-guests">
+      {{ reservation.room?.maxGuests }}
+      <mat-icon fontIcon="person" class="guest-icon"></mat-icon>
+    </p>
+    <p class="reservation-description">{{ reservation.room?.description }}</p>
+  </div>
+</div>

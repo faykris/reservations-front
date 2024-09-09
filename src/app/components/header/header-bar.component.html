@@ -1,0 +1,53 @@
+<div class="header">
+  <div class="date-range-selector-container">
+    <div class="date-range-selector">
+      <div class="section date-section">
+        <mat-form-field class="field">
+          <mat-label>Check in date</mat-label>
+          <input
+            matInput
+            [matDatepicker]="checkInPicker"
+            [(ngModel)]="checkInDate"
+          />
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle
+            matIconSuffix
+            [for]="checkInPicker"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #checkInPicker></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field class="field">
+          <mat-label>Check out date</mat-label>
+          <input
+            matInput
+            [matDatepicker]="checkOutPicker"
+            [(ngModel)]="checkOutDate"
+          />
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle
+            matIconSuffix
+            [for]="checkOutPicker"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #checkOutPicker></mat-datepicker>
+        </mat-form-field>
+      </div>
+
+      <div class="section">
+        <mat-form-field class="guest-field">
+          <mat-label>Guests</mat-label>
+          <input matInput [(ngModel)]="guests" placeholder="Number of guests" />
+        </mat-form-field>
+
+        <button
+          mat-fab
+          aria-label="Search rooms"
+          (click)="searchRooms()"
+          [disabled]="!checkInDate || !checkOutDate || !guests"
+        >
+          <mat-icon fontIcon="search"></mat-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

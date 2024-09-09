@@ -1,0 +1,28 @@
+.container {
+  margin: 20px auto;
+  max-width: 900px;
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 24px;
+  row-gap: 24px;
+}
+
+.card {
+  width: calc((100% / 3) - 16px);
+}
+
+@media (max-width: 768px) {
+  .card {
+    width: calc((100% / 2) - 24px);
+  }
+}
+
+@media (max-width: 540px) {
+  .card {
+    width: 100%;
+  }
+
+  .container {
+    column-gap: 0;
+  }
+}

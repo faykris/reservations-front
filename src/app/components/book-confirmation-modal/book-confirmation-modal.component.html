@@ -1,0 +1,48 @@
+<div>
+  <mat-dialog-content>
+    <div class="booking-confirmation">
+      <div class="summary">
+        <h2 class="booking-title">Your booking summary</h2>
+        <div class="section-container">
+          <p class="section-title">Address</p>
+          <div class="hotel-information">
+            <p class="hotel-details">Titan hotel</p>
+            <p class="hotel-details">Cr 13 #44-34</p>
+            <p class="hotel-details">{{ data.name }}</p>
+          </div>
+        </div>
+        <div class="section-container">
+          <p class="section-title">Dates</p>
+          <div class="reservation-date">
+            <p class="reservation-start-date">
+              {{ data.checkIn | date: 'MMM d, h:mm a' }}
+            </p>
+            -
+            <p class="reservation-end-date">
+              {{ data.checkOut | date: 'MMM d, h:mm a' }}
+            </p>
+          </div>
+        </div>
+        <div class="section-container">
+          <p class="section-title">Guests</p>
+          <p class="reservation-guests">
+            {{ data.guests }}
+            <mat-icon fontIcon="person" class="guest-icon"></mat-icon>
+          </p>
+        </div>
+      </div>
+      <div class="charges">
+        <p>Charges</p>
+        <div class="total">
+          <p class="price">{{ data.totalPrice | currency }}</p>
+          <p class="label">Total</p>
+        </div>
+      </div>
+    </div>
+  </mat-dialog-content>
+
+  <mat-dialog-actions>
+    <button mat-button (click)="onCancelBooking()">Cancel</button>
+    <button mat-button (click)="onBooking()">Confirm</button>
+  </mat-dialog-actions>
+</div>
