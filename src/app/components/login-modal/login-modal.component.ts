@@ -16,6 +16,7 @@ import {
 } from '@angular/forms';
 import { NgIf } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-login-modal',
@@ -64,7 +65,7 @@ export class LoginModalComponent {
       this.http
         .post<
           { accessToken: string; userId: string } | undefined
-        >('http://localhost:8080/api/auth/login', loginData)
+        >(`${environment.API_URL}/auth/login`, loginData)
         .subscribe({
           next: (response) => {
             if (response?.accessToken) {

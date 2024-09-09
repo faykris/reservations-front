@@ -8,6 +8,7 @@ import { BookConfirmationModalComponent } from '../../components/book-confirmati
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { LoginModalComponent } from '../../components/login-modal/login-modal.component';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-room-card',
@@ -97,7 +98,7 @@ export class RoomCardComponent {
         };
 
         this.http
-          .post('http://localhost:8080/api/reservation/create', reservation, {
+          .post(`${environment.API_URL}/reservation/create`, reservation, {
             headers,
           })
           .subscribe({

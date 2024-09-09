@@ -16,6 +16,7 @@ import { MatError, MatFormField, MatLabel } from '@angular/material/form-field';
 import { HttpClient } from '@angular/common/http';
 import { MatInput } from '@angular/material/input';
 import { NgIf } from '@angular/common';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-sign-up-modal',
@@ -66,7 +67,7 @@ export class SignUpModalComponent {
       const signupData = this.signupForm.value;
 
       this.http
-        .post('http://localhost:8080/api/auth/register', signupData)
+        .post(`${environment.API_URL}/auth/register`, signupData)
         .subscribe({
           next: () => {
             console.log('User registered successfully NEXT');

@@ -6,6 +6,7 @@ import { EditBookingModalComponent } from '../../components/edit-booking-modal/e
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-reservation-card',
@@ -56,7 +57,7 @@ export class ReservationCardComponent {
 
         this.http
           .put(
-            `http://localhost:8080/api/reservation/${this.reservation.id}/update`,
+            `${environment.API_URL}/reservation/${this.reservation.id}/update`,
             reservation,
             {
               headers,
